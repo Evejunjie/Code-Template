@@ -94,7 +94,7 @@
         },
         /** class 绑定 */
         "c-class": function () {
-
+        	return initial.get.apply({},arguments);
         },
         /** 指向 为了简写层级 */
         "c-point": function () {
