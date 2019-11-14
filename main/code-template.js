@@ -98,7 +98,7 @@
         },
         /** 指向 为了简写层级 */
         "c-point": function () {
-            return initial.get.apply({}, arguments);
+            return initial.get.apply({}, arguments); 
         },
         "c-ternary": function () {
 
