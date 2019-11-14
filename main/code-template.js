@@ -94,11 +94,11 @@
         },
         /** class 绑定 */
         "c-class": function () {
-        	return initial.get.apply({},arguments);
+            return initial.get.apply({}, arguments);
         },
         /** 指向 为了简写层级 */
         "c-point": function () {
-
+            return initial.get.apply({}, arguments);
         },
         "c-ternary": function () {
 
@@ -153,12 +153,12 @@
                     node.parentNode = elem.parentNode;
                 }
                 if (val) {
-                    if( elem.parentNode){
+                    if (elem.parentNode) {
                         elem.parentNode.removeChild(elem);
                     }
                 } else {
                     //-> 判断是否已经添加了
-                    if(!elem.parentNode){
+                    if (!elem.parentNode) {
                         node.parentNode.appendChild(elem);
                     }
                 }
@@ -308,8 +308,8 @@
          */
         "c-name": function (node, val, elem, data) {
             if (!elem.attributes.name) {
-                for (var  key in node.attrMap) {
-                    elem.setAttribute("name",node.attrMap[key]);
+                for (var key in node.attrMap) {
+                    elem.setAttribute("name", node.attrMap[key]);
                     break;
                 }
             }
@@ -318,7 +318,7 @@
         "c-value": function (node, val, elem, data) {
             if (node.timely && !node.event) {
                 node.event = function (event) {
-                    node.valueOf(elem.value,elem.name);
+                    node.valueOf(elem.value, elem.name);
                     if (event) {
                         event.preventDefault();
                     } else {
@@ -497,19 +497,19 @@
             }
             return false;
         }
-        this.valueOf=function(val,name){
-            for (var  key in  this.hierarchy) {
-                if(this.attrMap[key] == name){
-                    this.hierarchy[key][name]=val;
+        this.valueOf = function (val, name) {
+            for (var key in this.hierarchy) {
+                if (this.attrMap[key] == name) {
+                    this.hierarchy[key][name] = val;
                 }
             }
         }
     }
 
-/**
- * 键值双向绑定, 
- * 一个键值绑定多个 html节点元素
- */
+    /**
+     * 键值双向绑定, 
+     * 一个键值绑定多个 html节点元素
+     */
     function TwoWay(parent, key, code) {
         this.value = parent[key];
         this.valueType = typeof (this.value);
