@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>旅途-Code-junjie</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="junjie.css">
+    <script src="code-template.js"></script>
+    <script>
+        window.infoProject = {
+            data: {
+                message: {
+                    tips: "在登录之后请不要有任何提交数据操作!!",
+                    code: "代码片段是项目的核心代码,主要是避免代码重复,Service采用的是继承," +
+                        "而不是实现,原因还是团队问题,小团队压根就不会出现一个接口几个人去定义它." +
+                        " 这个三个抽象类都有默认的继承者,继承者主要为了简写Id的泛型,",
+                },
+                list: [{
+                        name: "安森康仪",
+                        url: "http://www.askybj.com/weChat/mp/WeChatPathControl",
+                        type: "微信公众号",
+                        account: {
+                            name: "暂不提供",
+                            pass: "暂不提供"
+                        },
+                        tips: "这个是微信公众号,请使用微信打开或者关注 '安森康仪'然后进入 "
+                    },
+                    {
+                        name: "皮博士磁共振",
+                        type: "javaWeb网站",
+                        url: "http://cgzpj.com",
+                        account: {
+                            name: "nowos",
+                            pass: "nowos"
+                        },
+                        tips: "在登录之后请不要有任何提交数据操作!!,操作表单只需要点击表格数据则可以显示出操作向"
+                    },
+                    {
+                        name: "j-template",
+                        url: "https://github.com/Evejunjie/j-template",
+                        type: "作品",
+                        account: {
+                            name: "无需",
+                            pass: "无需"
+                        },
+                        tips: "该作品已经有段时间未更新,参考价值不大,你可以查看 'code-template.js'这个是最新的,他就在压缩包内(未完成版)"
+                    },
+                    {
+                        name: "花生约见",
+                        type: "muiH5+app项目",
+                        url: "http://huashengapp.cq5266.com/html/download.html",
+                        account: {
+                            name: "需要注册",
+                            pass: "需要注册"
+                        },
+                        tips: "下载推荐Android(安卓),项目除了约单模块,其余模块都是直接负责和间接参与,直接负责预估在70%左右"
+                    },
+                    {
+                        name: "众启商城",
+                        type: "微信公众号",
+                        url: "http://zq.cqzqsc.cn/fstore/main/index",
+                        account: {
+                            name: "暂不提供",
+                            pass: "暂不提供"
+                        },
+                        tips: "这个微信公众号,您可以使用微信搜索该公众号,然后进入"
+                    }
+                ],
+                codeSnippet: [{
+                        note: "这是控制层图片,简写web",
+                        src: "img/Web.png",
+                    },
+                    {
+                        note: "这是服务层图片,简写Service",
+                        src: "img/Service.png",
+                    },
+                    {
+                        note: "这是持久层图片,简写Mapper",
+                        src: "img/Mapper.png",
+                    }
+                ],
+
+            },
+            code: null,
+            main: function () {
+                infoProject.code = CodeT("body", infoProject.data, {});
+            }
+        }
+        infoProject.main();
+    </script>
+</head>
+
+<body title="junjie">
+    <header>
+
+    </header>
+    <main>
+        <div>
+            <h2>以下是项目展示</h2>
+            <ul>
+                <li c-for="list">
+                    <div>
+                        <p>项目名称: <strong c-text="name"></strong> </p>
+                        <p>项目类型: <strong c-text="type"></strong> </p>
+                        <p>项目地址: <a c-href="{key:url,params:[name,type]}" c-text="url"></a> </p>
+                        <div>
+                            <p>登录账号: <strong c-text="account.name"></strong> </p>
+                            <p>登录密码: <strong c-text="account.pass"></strong> </p>
+                        </div>
+                    </div>
+                    <p>
+                        <em>温馨提示:</em>
+                        <span c-text="tips"></span>
+                    </p>
+                    <hr class="hr">
+                </li>
+            </ul>
+        </div>
+        <div>
+            <h2>以下是部分代码片段展示(图片)</h2>
+            <div>
+                <ul>
+                    <li c-for="codeSnippet">
+                        <p><strong c-text="note"></strong></p>
+                        <img c-src="src" alt="代码片段图片">
+                        <hr>
+                    </li>
+                </ul>
+                <p>
+                    <em>提示:</em>
+                    <span c-text="message.code"></span>
+                </p>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div>
+            <p>
+                <strong c-text="message.tips"></strong>
+            </p>
+        </div>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,14 @@
+@charset "utf-8";
+html,*{
+    font-size: 16px;
+}
+body{
+    padding: 1rem;
+}
+main{
+    width: 960px;
+    margin: auto;
+}
+img{
+    max-width: 100%;
+}
